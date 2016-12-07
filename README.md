@@ -19,7 +19,7 @@ Here i created two amazon alexa skill
  
  Examples (conversational model)
  
- User: "Alexa, tell Experion to say i need a leave" <br />
+ User: "Alexa, tell Leave Letter to say i need a leave" <br />
  Alexa: "OK, When you plan to take your leave" <br />
  User: "today" <br />
  Alexa: "Good, Which type of leave would you like to take?" <br />
