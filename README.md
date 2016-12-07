@@ -8,8 +8,8 @@ Here i created two amazon alexa skill
 
  Examples (One-shot model)
  
- User: "Alexa, tell Hello World to say hello"
- Alexa: "Hello World!"
+ User: "Alexa, tell Hello World to say hello" <br />
+ Alexa: "Hello World!" <br />
  
  
 # 2) Leave Letter 
@@ -19,7 +19,7 @@ Here i created two amazon alexa skill
  
  Examples (conversational model)
  
- User: "Alexa, tell Experion to say i need a leave"
+ User: "Alexa, tell Experion to say i need a leave" <br />
  Alexa: "OK, When you plan to take your leave"
  User: "today"
  Alexa: "Good, Which type of leave would you like to take?"
