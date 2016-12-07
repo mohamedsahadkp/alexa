@@ -18,14 +18,7 @@
  *  Alexa: "Hello World!"
  */
 
-/**
- * App ID for the skill
- */
-var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
-
-/**
- * The AlexaSkill prototype and helper functions
- */
+var config = require('config.json')('./config/config.json');
 var AlexaSkill = require('./AlexaSkill');
 
 /**
@@ -35,7 +28,7 @@ var AlexaSkill = require('./AlexaSkill');
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
  */
 var HelloWorld = function () {
-    AlexaSkill.call(this, APP_ID);
+    AlexaSkill.call(this, config.alexa.AppId);
 };
 
 // Extend AlexaSkill
