@@ -1,0 +1,28 @@
+{
+  "intents": [
+    {
+      "intent": "LeaveIntent"
+    },
+    {
+      "intent": "LeaveDateIntent"
+    },
+    {
+      "intent": "LeaveTypeIntent"
+    },
+    {
+      "intent": "LeaveYesIntent"
+    },
+    {
+      "intent": "LeaveNoIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

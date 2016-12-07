@@ -1,0 +1,30 @@
+LeaveIntent i need a leave
+LeaveIntent i would like to apply a leave
+LeaveIntent please help me to take a leave
+LeaveIntent leave
+LeaveDateIntent today
+LeaveDateIntent monday
+LeaveDateIntent next monday
+LeaveDateIntent tomorrow
+LeaveDateIntent next month
+LeaveDateIntent next firday
+LeaveDateIntent this monday
+LeaveDateIntent this tuesday
+LeaveTypeIntent sick leave
+LeaveTypeIntent sick
+LeaveTypeIntent sl
+LeaveTypeIntent earned leave
+LeaveTypeIntent earned 
+LeaveTypeIntent el
+LeaveTypeIntent lose of pay
+LeaveTypeIntent lop
+LeaveTypeIntent casual leave
+LeaveTypeIntent casual
+LeaveTypeIntent cl
+LeaveYesIntent yes
+LeaveYesIntent ok
+LeaveYesIntent sure
+LeaveYesIntent you can proceed
+LeaveYesIntent proceed
+LeaveNoIntent no
+LeaveNoIntent not interested
