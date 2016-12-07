@@ -20,10 +20,10 @@ Here i created two amazon alexa skill
  Examples (conversational model)
  
  User: "Alexa, tell Experion to say i need a leave" <br />
- Alexa: "OK, When you plan to take your leave"
- User: "today"
- Alexa: "Good, Which type of leave would you like to take?"
- User: "sick leave"
- Alexa: "Can i confirm your leave application"
- User: "sure"
- Alexa: "Congratulations your leave application submitted successfully, Have a great time"
+ Alexa: "OK, When you plan to take your leave" <br />
+ User: "today" <br />
+ Alexa: "Good, Which type of leave would you like to take?" <br />
+ User: "sick leave" <br />
+ Alexa: "Can i confirm your leave application" <br />
+ User: "sure" <br />
+ Alexa: "Congratulations your leave application submitted successfully, Have a great time" <br />
