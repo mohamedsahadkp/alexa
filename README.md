@@ -1,4 +1,4 @@
-# Amazon Alexa
+# Amazon Alexa Skill
 
 Here i created two amazon alexa skill
 
