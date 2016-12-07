@@ -12,75 +12,69 @@ var config = require('config.json')('./config/config.json');
 var AlexaSkill = require('./AlexaSkill');
 
 //Set App ID for the skill
-var HelloWorld = function () {
+var LeaveLetter = function () {
     AlexaSkill.call(this, config.alexa.AppId);
 };
 
 // Extend AlexaSkill
-HelloWorld.prototype = Object.create(AlexaSkill.prototype);
-HelloWorld.prototype.constructor = HelloWorld;
+LeaveLetter.prototype = Object.create(AlexaSkill.prototype);
+LeaveLetter.prototype.constructor = LeaveLetter;
 
-HelloWorld.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-    console.log("HelloWorld onSessionStarted requestId: " + sessionStartedRequest.requestId
+
+//Initialization
+LeaveLetter.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
+    console.log("LeaveLetter onSessionStarted requestId: " + sessionStartedRequest.requestId
         + ", sessionId: " + session.sessionId);
-    // any initialization logic goes here
 };
 
-HelloWorld.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-    console.log("HelloWorld onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    var speechOutput = "Welcome to the Alexa Skills Kit, you can say hello";
-    var repromptText = "You can say hello";
+//App Open
+LeaveLetter.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
+    console.log("LeaveLetter onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
+    var speechOutput = "Welcome to the Leave Letter App, You can say i need a leave";
+    var repromptText = "You can say i need a leave";
     response.ask(speechOutput, repromptText);
 };
 
-HelloWorld.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
+//Cleanup
+LeaveLetter.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
     console.log("HelloWorld onSessionEnded requestId: " + sessionEndedRequest.requestId
         + ", sessionId: " + session.sessionId);
-    // any cleanup logic goes here
 };
 
-HelloWorld.prototype.intentHandlers = {
+//App Request
+LeaveLetter.prototype.intentHandlers = {
     // register custom intent handlers
     "LeaveIntent": function (intent, session, response) {
-        //response.tellWithCard("Hello World!", "Hello World", "Hello World!");
         console.log("Leave Started");
-        /****/
-        response.ask("OK, When you plan to take your leave","OK, When you plan to take your leave");
+        var leave = "OK, When you plan to take your leave";
+        response.ask(leave, leave);
     },
     "LeaveDateIntent": function (intent, session, response) {
-        //response.tellWithCard("Hello World!", "Hello World", "Hello World!");
         console.log("Ask Leave Date");
-        /****/
-        response.ask("Good, Which type of leave would you like to take?","Good, Which type of leave would you like to take?");
+        var leaveDate = "Good, Which type of leave would you like to take";
+        response.ask(leaveDate, leaveDate)
     },
     "LeaveTypeIntent": function (intent, session, response) {
-        //response.tellWithCard("Hello World!", "Hello World", "Hello World!");
         console.log("Ask Leave Type");
-        /****/
-        response.ask("Can i confirm your leave application","Can i confirm your leave application");
+        var leaveType = "Can i confirm your leave application";
+        response.ask(leaveType, leaveType);
     },
     "LeaveYesIntent": function (intent, session, response) {
-        //response.tellWithCard("Hello World!", "Hello World", "Hello World!");
-        console.log("Ask Leave Confirmation");
-        /****/
+        console.log("Ask Leave Confirmation (Yes)");
         var leaveConfirm = "Congratulations your leave application submitted successfully, Have a great time"
         response.tellWithCard(leaveConfirm, leaveConfirm, leaveConfirm);
     },
     "LeaveNoIntent": function (intent, session, response) {
-        //response.tellWithCard("Hello World!", "Hello World", "Hello World!");
-        console.log("Ask Leave Confirmation");
-        /****/
+        console.log("Ask Leave Confirmation (No)");
         var leaveConfirm = "You application is not submitted, Have a great time."
         response.tellWithCard(leaveConfirm, leaveConfirm, leaveConfirm);
     },
     "AMAZON.HelpIntent": function (intent, session, response) {
+        console.log("Help");
         response.tell("You can ask me to i would like to take a leave");
     },
     "AMAZON.StopIntent": function (intent, session, response) {
-        var speechOutput = "Goodbye";
-        response.tell(speechOutput);
-    },
-    "AMAZON.CancelIntent": function (intent, session, response) {
+        console.log("Stop");
         var speechOutput = "Goodbye";
         response.tell(speechOutput);
     }
@@ -88,7 +82,8 @@ HelloWorld.prototype.intentHandlers = {
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
-    // Create an instance of the HelloWorld skill.
-    var helloWorld = new HelloWorld();
-    helloWorld.execute(event, context);
+    
+    // Create an instance of the LeaveLetter skill.
+    var leaveLetter = new LeaveLetter();
+    leaveLetter.execute(event, context);
 };
