@@ -10,6 +10,22 @@
 
 var config = require('config.json')('./config/config.json');
 var AlexaSkill = require('./AlexaSkill');
+var firebase = require('firebase')
+
+var config = {
+    apiKey: "AIzaSyBYfciw7MfCGyhkapZuNQkvhxWVNaB9sCg",
+    authDomain: "myapp-cd853.firebaseapp.com",
+    databaseURL: "https://myapp-cd853.firebaseio.com",
+    storageBucket: "myapp-cd853.appspot.com",
+    messagingSenderId: "915249587360"
+};
+
+//Firebase real-time database initialization
+firebase.initializeApp(config);
+
+//database connection
+var rootObject  = firebase.database().ref('data');
+var msgRef = rootObject.child('smarthome');
 
 //Set App ID for the skill
 var LeaveLetter = function () {
@@ -46,12 +62,18 @@ LeaveLetter.prototype.intentHandlers = {
     // register custom intent handlers
     "TURNOFFLIGHT": function (intent, session, response) {
         console.log("Turn Off light");
+        msgRef.update({
+            LED : false,
+        });
         var leave = "OK, Turning Off the light";
         response.ask(leave, leave);
     },
     "TURNONLIGHT": function (intent, session, response) {
         console.log("Turn on light");
-        var leaveConfirm = "OK, Turning on the light"
+        msgRef.update({
+            LED : true,
+        });
+        var leaveConfirm = "OK, Turning on the light";
         response.tellWithCard(leaveConfirm, leaveConfirm, leaveConfirm);
     },
     "AMAZON.HelpIntent": function (intent, session, response) {

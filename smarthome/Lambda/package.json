@@ -20,6 +20,7 @@
     "url": "https://github.com/mohamedsahadkp/alexa/issues"
   },
   "dependencies": {
-    "config.json": "0.0.4"
+    "config.json": "0.0.4",
+    "firebase": "^3.7.3"
   }
 }
