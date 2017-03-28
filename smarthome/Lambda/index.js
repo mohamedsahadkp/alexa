@@ -46,8 +46,8 @@ LeaveLetter.prototype.eventHandlers.onSessionStarted = function (sessionStartedR
 //App Open
 LeaveLetter.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     console.log("LeaveLetter onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    var speechOutput = "Welcome to the Leave Letter App, You can say i need a leave";
-    var repromptText = "You can say i need a leave";
+    var speechOutput = "Welcome to the Home App, You can say turn on or off the light";
+    var repromptText = "You can say turn on or off the light";
     response.ask(speechOutput, repromptText);
 };
 

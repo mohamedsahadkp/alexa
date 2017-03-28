@@ -1,6 +1,6 @@
-TURNOFFLIGHT please turn on the light
-TURNOFFLIGHT can you please turn on the light
-TURNOFFLIGHT on the light
-TURNONLIGHT please turn off the light
-TURNONLIGHT can you please off the light
-TURNONLIGHT off the light
+TURNONLIGHT please turn on the light
+TURNONLIGHT can you please turn on the light
+TURNONLIGHT on the light
+TURNOFFLIGHT please turn off the light
+TURNOFFLIGHT can you please off the light
+TURNOFFLIGHT off the light
