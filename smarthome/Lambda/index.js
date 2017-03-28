@@ -29,7 +29,7 @@ var msgRef = rootObject.child('smarthome');
 
 //Set App ID for the skill
 var LeaveLetter = function () {
-    AlexaSkill.call(this, config.alexa.AppId);
+    AlexaSkill.call(this, "amzn1.ask.skill.baf5a3c7-8254-45ac-bb92-efed3cbeebd3");
 };
 
 // Extend AlexaSkill
@@ -62,19 +62,16 @@ LeaveLetter.prototype.intentHandlers = {
     // register custom intent handlers
     "TURNOFFLIGHT": function (intent, session, response) {
         console.log("Turn Off light");
-        msgRef.update({
-            LED : false,
-        });
-        var leave = "OK, Turning Off the light";
-        response.ask(leave, leave);
+        askAlexaTurnOfflight();
+        var turnOfflight = "OK, Turning Off the light";
+        response.ask(turnOfflight, turnOfflight);
     },
     "TURNONLIGHT": function (intent, session, response) {
         console.log("Turn on light");
-        msgRef.update({
-            LED : true,
-        });
-        var leaveConfirm = "OK, Turning on the light";
-        response.tellWithCard(leaveConfirm, leaveConfirm, leaveConfirm);
+        askAlexaTurnOnlight();
+        var turnOnlight = "OK, Turning on the light";
+        response.ask(turnOnlight, turnOnlight);
+        //response.tellWithCard(leaveConfirm, leaveConfirm, leaveConfirm);
     },
     "AMAZON.HelpIntent": function (intent, session, response) {
         console.log("Help");
@@ -91,6 +88,19 @@ LeaveLetter.prototype.intentHandlers = {
         response.tell(speechOutput);
     }
 };
+
+function askAlexaTurnOnlight() {
+    msgRef.update({
+        LED : true,
+    });
+};
+
+function askAlexaTurnOfflight() {
+    msgRef.update({
+        LED : false,
+    });
+};
+
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
