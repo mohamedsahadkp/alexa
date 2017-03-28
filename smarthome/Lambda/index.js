@@ -32,6 +32,18 @@ var LeaveLetter = function () {
     AlexaSkill.call(this, "amzn1.ask.skill.baf5a3c7-8254-45ac-bb92-efed3cbeebd3");
 };
 
+function askAlexaTurnOnlight() {
+    msgRef.update({
+        LED : true,
+    });
+};
+
+function askAlexaTurnOfflight() {
+    msgRef.update({
+        LED : false,
+    });
+};
+
 // Extend AlexaSkill
 LeaveLetter.prototype = Object.create(AlexaSkill.prototype);
 LeaveLetter.prototype.constructor = LeaveLetter;
@@ -89,17 +101,7 @@ LeaveLetter.prototype.intentHandlers = {
     }
 };
 
-function askAlexaTurnOnlight() {
-    msgRef.update({
-        LED : true,
-    });
-};
 
-function askAlexaTurnOfflight() {
-    msgRef.update({
-        LED : false,
-    });
-};
 
 
 // Create the handler that responds to the Alexa Request.
