@@ -36,13 +36,15 @@ function askAlexaTurnOnlight() {
     msgRef.update({
         LED : true,
     });
-};
+    console.log("askAlexaTurnOnlight :" + JSON.stringify(msgRef))
+}
 
 function askAlexaTurnOfflight() {
     msgRef.update({
         LED : false,
     });
-};
+    console.log("askAlexaTurnOfflight :" + JSON.stringify(msgRef))
+}
 
 // Extend AlexaSkill
 LeaveLetter.prototype = Object.create(AlexaSkill.prototype);
@@ -74,16 +76,36 @@ LeaveLetter.prototype.intentHandlers = {
     // register custom intent handlers
     "TURNOFFLIGHT": function (intent, session, response) {
         console.log("Turn Off light");
-        askAlexaTurnOfflight();
-        var turnOfflight = "OK, Turning Off the light";
-        response.ask(turnOfflight, turnOfflight);
+        msgRef.update({
+            LED : false,
+        });
+
+         msgRef.on("value", function(snapshot) {
+            console.log(snapshot.val());
+            var turnOfflight = "OK, Turning Off the light";
+            response.tellWithCard(turnOfflight, turnOfflight, turnOfflight);
+        }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+            var turnOfflight = "Sorry, We are not able to process your request. Please try again later.";
+            response.tellWithCard(turnOfflight, turnOfflight, turnOfflight);
+        });
+        
     },
     "TURNONLIGHT": function (intent, session, response) {
         console.log("Turn on light");
-        askAlexaTurnOnlight();
-        var turnOnlight = "OK, Turning on the light";
-        response.ask(turnOnlight, turnOnlight);
-        //response.tellWithCard(leaveConfirm, leaveConfirm, leaveConfirm);
+        msgRef.update({
+            LED : true,
+        });
+
+        msgRef.on("value", function(snapshot) {
+            console.log(snapshot.val());
+            var turnOnlight = "OK, Turning on the light";
+            response.tellWithCard(turnOnlight, turnOnlight, turnOnlight);
+        }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+            var turnOfflight = "Sorry, We are not able to process your request. Please try again later.";
+            response.tellWithCard(turnOfflight, turnOfflight, turnOfflight);
+        });
     },
     "AMAZON.HelpIntent": function (intent, session, response) {
         console.log("Help");
