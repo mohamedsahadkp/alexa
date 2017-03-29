@@ -16,7 +16,7 @@ firebase.initializeApp(config);
 
 //database connection
 var rootObject  = firebase.database().ref('data');
-var msgRef = rootObject.child('smarthome');
+var msgRef = rootObject.child('smarthome').child('LED');
 
 var gpio4 = gpio.export(4, {
    direction: "out",
@@ -26,10 +26,10 @@ var gpio4 = gpio.export(4, {
 
 msgRef.on("value", function(snapshot) {
     console.log(snapshot.val());
-    if(snapshot.val() == "True") {
+    if(snapshot.val() == "true") {
         // sets pin to high 
         gpio4.set();
-    } else if (snapshot.val() == "False") {
+    } else if (snapshot.val() == "false") {
         // sets pin to low (can also call gpio4.reset()) 
         gpio4.set(0);
     } else {
@@ -38,3 +38,9 @@ msgRef.on("value", function(snapshot) {
 }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
 });
+
+// msgRef.on("value", function(snapshot) {
+//     console.log(snapshot.val());
+// }, function (errorObject) {
+//     console.log("The read failed: " + errorObject.code);
+// });
