@@ -2,7 +2,7 @@
 
 Here i created two amazon alexa skill
 
-# 1) Hello World 
+### 1) Hello World 
  This simple HelloWorld for Amazon Alexa. I implemented a Lambda function using NodeJS for handling Alexa Skill requests,
  It has no external dependencies or session management.
 
@@ -12,7 +12,7 @@ Here i created two amazon alexa skill
  Alexa: "Hello World!" <br />
  
  
-# 2) Leave Letter 
+### 2) Leave Letter 
  LeaveLetter alexa skill is usefull to plan to your leave. 
  I created a Lambda function using NodeJS for handling Alexa Skill leave requests, 
  It is using 'config.json'(https://www.npmjs.com/package/config.json) external dependencies.
